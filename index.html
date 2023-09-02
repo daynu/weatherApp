@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherApp</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <nav>
+        <h3 id = "logo">WedR</h3>
+        <form id = "locationForm">
+            <input type="text" id="newLocation" placeholder="Enter city here" required>
+            <button type="submit">Search</button>
+        </form>
+        <label class="switch">
+            <input type="checkbox" id = "scaleChange">
+            <span class="slider round" id="slider"></span>
+        </label>
+    </nav>
+    <div id = "display">
+        <div id ="infoContainer" class="hidden">
+            <div id = "location"></div>
+            <div id = "temperature"></div>
+            <div id = "condition">
+                <img id = "icon" src = "">
+                <div id = "description"></div>
+            </div>
+            <div id = "feelsLike"></div>
+            
+        </div>
+
+</div>
+
+    <script src="./main.js"></script>
+</body>
+</html>
