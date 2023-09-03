@@ -12,7 +12,7 @@ export function checkScale(data)
 {   
     let scaleChange = document.getElementById('scaleChange')
     //let feelsLike = document.getElementById('feelsLike')
-    feelsLike.innerText = "Feels like : "
+    feelsLike.innerHTML = "Feels like : &nbsp"
     if(scaleChange.checked) 
     {
         temperature.innerText = toFahrenheit(data.main.temp) + "°F"
