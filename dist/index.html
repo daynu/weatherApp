@@ -11,14 +11,14 @@
         <h3 id = "logo">WedR</h3>
         <form id = "locationForm">
             <input type="text" id="newLocation" placeholder="Enter city here" required>
-            <button type="submit">Search</button>
+            <button id = "searchButton" type="submit"><img src="./img/search.png"></button>
         </form>
         <label class="switch">
             <input type="checkbox" id = "scaleChange">
             <span class="slider round" id="slider"></span>
         </label>
     </nav>
-    <div id = "display">
+    <div id = "display" >
         <div id ="infoContainer" class="hidden">
             <div id = "location"></div>
             <div id = "temperature"></div>
@@ -27,8 +27,67 @@
                 <div id = "description"></div>
             </div>
             <div id = "feelsLike"></div>
-            
         </div>
+
+        <div id = forecastHourlyContainer class="hidden">
+            <div>
+                <button id = "prev"><</button>
+                <button id = "next">></button>
+            </div>
+            
+            <div id = "forecastHourly" class="hidden">
+                <div class = "hourCell" id = "1">
+                    <p class = hour></p>
+                    <img src="">
+                    <p class="description"></p>
+                    <p class = "hourTemp"></p>
+                    
+                </div>
+                <div class = "hourCell" id = "2">
+                    <p class = hour></p>
+                    <img src="">
+                    <p class="description"></p>
+                    <p class = "hourTemp"></p>
+                </div>
+                <div class = "hourCell" id = "3">
+                    <p class = hour></p>
+                    <img src="">
+                    <p class="description"></p>
+                    <p class = "hourTemp"></p>
+                </div>
+                <div class = "hourCell" id = "4">
+                    <p class = hour></p>
+                    <img src="">
+                    <p class="description"></p>
+                    <p class = "hourTemp"></p>
+                </div>
+                <div class = "hourCell" id = "5">
+                    <p class = hour></p>
+                    <img src="">
+                    <p class="description"></p>
+                    <p class = "hourTemp"></p>
+                </div>
+                <div class = "hourCell" id = "6">
+                    <p class = hour></p>
+                    <img src="">
+                    <p class="description"></p>
+                    <p class = "hourTemp"></p>
+                </div>
+                <div class = "hourCell" id = "7">
+                    <p class = hour></p>
+                    <img src="">
+                    <p class="description"></p>
+                    <p class = "hourTemp"></p>
+                </div>
+                <div class = "hourCell" id = "8">
+                    <p class = hour></p>
+                    <img src="">
+                    <p class="description"></p>
+                    <p class = "hourTemp"></p>
+                </div>
+            </div>
+        </div>
+        
 
 </div>
 

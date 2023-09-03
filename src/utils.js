@@ -1,4 +1,4 @@
-
+let key = 'd79e50c4aee629bdc2fcaa74795b684a'
 
 export default function getNewLocation()
 {
@@ -15,21 +15,52 @@ export function checkScale(data)
     feelsLike.innerText = "Feels like : "
     if(scaleChange.checked) 
     {
-        temperature.innerText = Math.round((data.main.temp-273.15) * 9/5 + 32) + "°F"
-        feelsLike.innerText += Math.round((data.main.feels_like-273.15) * 9/5 + 32) + "°F"
+        temperature.innerText = toFahrenheit(data.main.temp) + "°F"
+        feelsLike.innerText += toFahrenheit(data.main.feels_like) + "°F"
     }
     else
     {
-        temperature.innerText = Math.round(data.main.temp - 273.15) + "°C"
-        feelsLike.innerText += Math.round(data.main.feels_like - 273.15) + "°C"
+        temperature.innerText = toCelsius(data.main.temp) + "°C"
+        feelsLike.innerText += toCelsius(data.main.feels_like) + "°C"
     } 
 }
 
-export function changeScale(data)
+export async function changeScale(data)
 {
     let scaleChange = document.getElementById('scaleChange')
     scaleChange.addEventListener('click', () =>
     {
         checkScale(data)
+        
     })
+}
+
+export async function getForecastHourlyPromise(data)
+{
+    let lat = data.coord.lat
+    let lon = data.coord.lon
+    let response= await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${key}`, {mode: 'cors'})
+    let forecast = await response.json()
+    return forecast
+}
+
+export function toCelsius(kelvin)
+{
+    return Math.round(kelvin - 273.15)
+}
+
+export function toFahrenheit(kelvin)
+{
+    return Math.round((kelvin - 273.15) * 9/5 + 32)
+}
+
+export function changeScaleHour(temp, response)
+{
+    if(scaleChange.checked) temp.innerText = toFahrenheit(response.main.temp) + "°F"
+    else temp.innerText = toCelsius(response.main.temp) + "°C"
+}
+
+export function getIconSrc(icon)
+{
+    return `https://openweathermap.org/img/wn/${icon}@2x.png`
 }

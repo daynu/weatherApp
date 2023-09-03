@@ -1,10 +1,46 @@
+
 import display from "./ui";
 import getNewLocation from "./utils";
-let location;
-
+let location = "London";
 let form = document.getElementById('locationForm')
 let key = 'd79e50c4aee629bdc2fcaa74795b684a'
 let weatherData;
+let nav = document.querySelector('nav')
+let prev = document.getElementById('prev')
+let next = document.getElementById('next')
+let forecastHourly = document.getElementById('forecastHourly')
+
+prev.addEventListener('click', () =>
+{
+
+    forecastHourly.scrollLeft -= 200
+
+
+})
+
+next.addEventListener('click', () =>
+{
+    forecastHourly.scrollLeft += 200
+
+})
+
+if(window.innerWidth < 500)
+    {
+        nav.style.flexDirection = "column"
+    }
+
+
+window.addEventListener('resize', () =>
+{
+    if(window.innerWidth < 500)
+    {
+        nav.style.flexDirection = "column"
+    }
+    else nav.style.flexDirection = "row"
+})
+
+
+displayData()
 
 async function getDataPromise()
 {
